@@ -17,7 +17,7 @@ public class Cliente {
             BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
 
             /*
-             * A Theread listenServer é uma thread repsonsavel por ler e mostar ao cliente
+             * A Thread listenServer é uma thread repsonsavel por ler e mostar ao cliente
              * todas mensagens/respostas vindas do servidor
              */
             Thread listenServer = new Thread(new Runnable() {
@@ -25,7 +25,8 @@ public class Cliente {
 
                 @Override
                 public void run() {
-                    // Variavel isOn serve para indicar qd a conexao a servidor continua estabelecida
+                    // Variavel isOn serve para indicar qd a conexao a servidor continua
+                    // estabelecida
                     boolean isOn = true;
                     while (isOn) {
                         try {
@@ -45,7 +46,7 @@ public class Cliente {
             listenServer.start();
 
             String userWrote = "";
-            //Ciclo responsável por ler os inputs do cliente e envia-los para o servidor
+            // Ciclo responsável por ler os inputs do cliente e envia-los para o servidor
             while (!userWrote.equals("SAIR")) {
                 userWrote = userInput.readLine();
                 out.writeUTF(userWrote);
